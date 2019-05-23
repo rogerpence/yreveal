@@ -33,7 +33,7 @@ const show = function (elem) {
 
      // Get the natural height of the element
     const height = getHeight(elem);   
-    elem.classList.add('is-visible');    
+    elem.classList.add('block', 'h-auto');    
     elem.style.height = height; 
  
     // Once the transition is complete, remove the inline max-height so the content can scale responsively
@@ -50,7 +50,7 @@ const show = function (elem) {
     elem.style.height = 'auto';
 
     addAndRemoveHandler(elem, 'transitionend', (elem) => {
-        elem.classList.remove('is-visible');
+        elem.classList.remove('block', 'h-auto');
         console.log('transition for hide method');
         
         const anchor = document.getElementById('clicker');
@@ -75,7 +75,7 @@ const show = function (elem) {
  // Toggle element visibility
  const toggle = function (elem, timing) { 
     // If the element is visible, hide it
-    if (elem.classList.contains('is-visible')) {
+    if (elem.classList.contains('block')) {
         hide(elem);
         return;
     }

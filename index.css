@@ -1,0 +1,34 @@
+.toggle-content {
+    display: none;
+    height: 0;
+    overflow: hidden;
+    transition: height 400ms ease;
+    background-color: navy;
+    color: white;
+}
+
+a#clicker {
+    color: red;
+}
+
+a#clicker:link, a#clicker:visited { /* or a[href] */
+    color: black;
+}
+
+/*
+display
+h-auto
+*/
+
+.is-visible {
+    display: block;
+    height: auto;
+}
+
+.block {
+    display: block;
+}
+
+.h-auto {
+    height: auto;
+}

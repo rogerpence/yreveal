@@ -12,52 +12,44 @@ const addAndRemoveHandler = function(target, eventName, fn, delay = 250) {
     target.addEventListener(eventName, eventHandler);
 }
 
-const getHeight = function (elem) {
+const getElementHeight = function (elem) {
     elem.style.display = 'block'; // Make it visible
     return elem.scrollHeight + 'px'; // Get it's height
 };
  
  // Show an element
 const show = function (elem) {
-    const anchor = document.getElementById('clicker');
-    anchor.href = '';
+    // const anchor = document.getElementById('clicker');
+    // anchor.href = '';
 
     addAndRemoveHandler(elem, 'transitionend', (elem) => {
         elem.style.height = 'auto';
-        // console.log(elem.style.height);
-        // console.log('transition for show method');
-        
-        const anchor = document.getElementById('clicker');
-        anchor.href = anchor.getAttribute('data-href');
+
+        // const anchor = document.getElementById('clicker');
+        // anchor.href = anchor.getAttribute('data-href');
     }, 500)
 
      // Get the natural height of the element
-    const height = getHeight(elem);   
+    const height = getElementHeight(elem);   
     elem.classList.add('block', 'h-auto');    
-    elem.style.height = height; 
- 
-    // Once the transition is complete, remove the inline max-height so the content can scale responsively
-    // window.setTimeout(function () {
-    //     elem.style.height = 'auto';
-    // }, 350); 
+    elem.style.height = height;  
  };
  
  // Hide an element
  const hide = function (elem) {
-    const anchor = document.getElementById('clicker');
-    anchor.href = '';
+    // const anchor = document.getElementById('clicker');
+    // anchor.href = '';
 
     elem.style.height = 'auto';
 
     addAndRemoveHandler(elem, 'transitionend', (elem) => {
         elem.classList.remove('block', 'h-auto');
-        console.log('transition for hide method');
-        
-        const anchor = document.getElementById('clicker');
-        anchor.href = anchor.getAttribute('data-href');
+       
+        // const anchor = document.getElementById('clicker');
+        // anchor.href = anchor.getAttribute('data-href');
     }, 500)
 
-    const height = getHeight(elem); // Get the natural height
+    const height = getElementHeight(elem); 
     // Give the element a height to change from
     elem.style.height = height; 
   
@@ -65,45 +57,29 @@ const show = function (elem) {
     window.setTimeout(function () {
         elem.style.height = '0';
     }, 100);
- 
-    // When the transition is complete, hide it
-    // window.setTimeout(function () {
-    //     elem.classList.remove('is-visible');
-    // }, 350); 
  };
  
  // Toggle element visibility
  const toggle = function (elem, timing) { 
-    // If the element is visible, hide it
     if (elem.classList.contains('block')) {
         hide(elem);
         return;
     }
- 
-    // Otherwise, show it
-    show(elem);     
+    else {
+        show(elem);     
+    } 
  };
  
  // Listen for click events
-document.addEventListener('click', function (event) { 
-    // Make sure clicked element is our toggle
-    if (!event.target.classList.contains('toggle')) return;
-
+const clicker = document.querySelector('#clicker.toggle-menu');
+clicker.addEventListener('click', function (event) { 
     // Prevent default link behavior
     event.preventDefault();
  
     // Get the content
-    //var content = document.querySelector(event.target.hash);
     var content = document.getElementById('example');
     if (!content) return;
-
-    event.target.setAttribute('data-href', event.target.href);
-    
-    // content.addEventListener('transitionend', (args) => {        
-    //     console.log('transition ended');
-    // });
-    
+   
     // Toggle the content
-    toggle(content);
- 
+    toggle(content); 
 }, false);

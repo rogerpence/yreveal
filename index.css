@@ -7,24 +7,6 @@
     color: white;
 }
 
-a#clicker {
-    color: red;
-}
-
-a#clicker:link, a#clicker:visited { /* or a[href] */
-    color: black;
-}
-
-/*
-display
-h-auto
-*/
-
-.is-visible {
-    display: block;
-    height: auto;
-}
-
 .block {
     display: block;
 }

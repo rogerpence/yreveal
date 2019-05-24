@@ -2,17 +2,13 @@
     display: block;
     height: 0;
     overflow: hidden;
-    transition: height 400ms ease;
+    transition: height 400ms ease; 
     background-color: navy;
     color: white;
 }
 
 .block {
     display: block;
-}
-
-.h-auto {
-    height: auto;
 }
 
 a#clicker {

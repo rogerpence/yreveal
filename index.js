@@ -1,1 +1,1 @@
-new rp.YReveal2('#clicker.toggle-menu', '#example');
+new rp.YReveal('#clicker.toggle-menu', '#example');

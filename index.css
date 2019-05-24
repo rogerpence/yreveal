@@ -1,5 +1,5 @@
 .toggle-content {
-    display: none;
+    display: block;
     height: 0;
     overflow: hidden;
     transition: height 400ms ease;
@@ -13,4 +13,12 @@
 
 .h-auto {
     height: auto;
+}
+
+a#clicker {
+    color: black;
+}
+
+a#clicker:hover {
+    color: gray;
 }
